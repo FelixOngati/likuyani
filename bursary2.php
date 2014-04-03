@@ -83,6 +83,7 @@ if(isset($submit2)){
 	if(empty($error2)){
 		
 		$try=insertPersonalData($pId,$year, $ward, $village, $location, $sublocation, $gender, $dob, $father, $foccupation, $mother, $moccupation, $phone);	
+		allocationStatusDefault($pId);
     }
 }
 if(isset($submit3)){
@@ -175,8 +176,8 @@ function clearText(field)
         </div> <!-- end of site_title -->
         <div id="templatemo_menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="bursary.php">Bursary</a></li>                
+                <li><a href="adminhomepage.php">Back</a></li>
+                <li><a href="index.php">Home</a></li>                
                 <li><a href="blog.html">About Us</a></li>
                 <li class="last"><a href="contact.html">Contact</a></li>
             </ul>
@@ -272,32 +273,8 @@ function clearText(field)
 							</div>
                         </div>                        
                         </div>
-                    </div><!-- End cs_article -->
-                    
-                    <div class="cs_article">
-                    <div class="cs_article_inner">
-                    <div class="left">
-					<!--For the below section place the title for the section-->
-                        <h2>Application Status</h2>
-                        </div>
-                        <div id="4" class="right">
-                            <div class="content_box">
-								<form method="post" action="">
-								<p><b style="position:relative;left:2%;display:inline;">Bursary:</b><input type="text" name="bursary" ></p>
-								<p><b style="position:relative;left:2%;display:inline;">Application Status:</b><select type="text" name="applicationstatus" style="position:relative;float:right;right:30%;">
-								<option>Pending</option>
-								<option>Awarded</option>
-								<option>Unsuccessful</option>
-								</select></p>
-								<p><b style="position:relative;left:2%;display:inline;">Amount Awarded:</b><input type="text" name="amountawarded" ></p>
-								<p><input name="submit4" type="submit" value="Enter"/></p>
-								</form> 								
-							</div>
-                        </div>
-                        
-                        </div>
-                    </div><!-- End cs_article -->
-              
+                    </div><!-- End cs_article -->                  
+                                  
                 </div><!-- End cs_slider -->
             </div><!-- End cs_wrapper -->
         </div><!-- End contentslider -->

@@ -1,16 +1,4 @@
-<?php
-	mysql_connect("localhost", "root", "samurai") or die("Error connecting to database: ".mysql_error());
-	/*
-		localhost - it's location of the mysql server, usually localhost
-		root - your username
-		third is your password
-		
-		if connection fails it will stop loading the page and display an error
-	*/
-	
-	mysql_select_db("likuyani") or die(mysql_error());
-	/* tutorial_search is the name of database we've created */
-?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -86,19 +74,11 @@ $(window).load(function() {
     <div id="templatemo_content">
     	<div id="templatemo_main_content">
 			<div>
-			<ul style="display:display-block;">
-                <li style="display:inline;"><a href="academia.php" class="academia.php">Academia</a></li>|
-                <li style="display:inline;"><a href="bursaries.php">Bursaries</a></li>|
-                <li style="display:inline;"><a href="applicationstatus.php">Application Status</a></li>|
-                <li style="display:inline;"><a href="personaldata.php">Personal data</a></li>|
-				<li style="display:inline;"><a href="allocations.php">Allocations</a></li>|
-				<li style="display:inline;"><a href="homepagephotos.php">Homepage Photos</a></li>|
-				<li style="display:inline;"><a href="mpmessage.php">MPs Message</a></li>
-            </ul>
+			
 			</div>
         	<div class="content_box">
 				<form method="post" action="mpmessage" target="#">
-				<p><b style="position:relative;left:2%;display:inline;">Message Title:</b><input type="text" name="title" style="position:relative;float:right;right:40%;"></p>
+				<p><b style="position:relative;left:2%;display:inline;">Message Title:</b><input type="text" name="title" style="position:relative;float:right;right:8%;width:55%"></p>
 				<p><b style="position:relative;left:2%;display:inline;">Message:</b><textarea  name="textarea" rows="5" cols="37" style="position:relative;float:right;right:10%;"></textarea></p>
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> 
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>

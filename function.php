@@ -107,3 +107,103 @@ function insertPreviousAllocations($pId,$bursary,$dateAwarded,$amount){
 	         VALUES('$pId','$bursary','$dateAwarded','$amount')";
 	$query=mysql_query($query);
 }
+
+function allocationStatusDefault($pId){
+	    $busary = "Constuency Development Fund";
+	    $applicationStatus = "Applied";	    
+		$query=("INSERT INTO applicationstatus SET pId='$pId',
+	        dateApplied=NOW(),
+	        bursary='$bursary',
+	        applicationStaus='$applicationStatus'");
+	    $query = mysql_query($query);
+}
+
+function insertSlideImage($imagename,$description){
+	$description = trim($description);
+	$query  = ("INSERT INTO homepagephotos SET pname='$imagename', pdescription='$description'");
+	$query = mysql_query($query);
+	if(!($query)){
+		echo mysql_error();
+			}		
+}
+function getSlidingPhotos(){
+	$query = "SELECT * FROM homepagephotos ORDER BY photoId DESC LIMIT 4";
+	$query = mysql_query($query);
+	while($row=mysql_fetch_assoc($query)){
+      $profiledata[]=$row;
+	
+  }
+  return $profiledata;
+}
+function getNewDevelopments(){
+	$query = "SELECT * FROM updates ORDER BY updateId DESC LIMIT 6";
+	$query = mysql_query($query);
+	while($row=mysql_fetch_assoc($query)){
+      $profiledata[]=$row;
+	
+  }
+  return $profiledata;
+}
+function insertNewDevelopment($subject, $description){
+	$subject = mysql_real_escape_string($subject);
+	$description = mysql_real_escape_string($description);
+	$date = NOW();
+	$query  = ("INSERT INTO updates SET title='$subject', update='$description', date='$date'");
+	mysql_query($query);
+	if(!$query){
+	echo mysql_error();
+}
+}
+function search_pdata($institution,$id){
+	$profiledata=array();
+	$query="SELECT a.lName,a.fName,a.pId,b.sex,b.dob 
+	        FROM academia a, personaldata b
+	        WHERE (a.institution LIKE '%".$institution."%') AND 
+	        (a.admNo LIKE '%".$admNo."%') AND (a.pId = b.pId)";
+	$query=mysql_query($query);
+	echo mysql_error();
+	
+    while($row=mysql_fetch_assoc($query)){
+      $profiledata[]=$row;
+	
+  }
+  return $profiledata;
+}
+
+function search_paddress($pId){
+	$pId = mysql_real_escape_string($pId);
+	$query = "SELECT ward, village, location, sublocation, phone FROM personaldata WHERE pId = '$pId'";
+	$query = mysql_query($query);
+	while($address = mysql_fetch_assoc($query)){
+		$addresses[] = $address;
+	}
+	return $addresses;
+}
+function search_pacademic($pId){
+	$pId = mysql_real_escape_string($pId);
+	$query = "SELECT institution, class, year, admNo FROM academia WHERE pId = '$pId'";
+	$query = mysql_query($query);
+	while($academic = mysql_fetch_assoc($query)){
+		$academics[] = $academic;
+	}
+	return $academics;
+}
+
+function search_pparents($pId){
+	$pId = mysql_real_escape_string($pId);
+	$query = "SELECT father, foccupation, mother, moccupation FROM personaldata WHERE pId = '$pId'";
+	$query = mysql_query($query);
+	while($parent = mysql_fetch_assoc($query)){
+		$parents[] = $parent;
+	}
+	return $parents;
+}
+function search_pallocations($pId){
+	$pId = mysql_real_escape_string($pId);
+	$query = "SELECT * from previousallocations WHERE pId = '$pId'";
+	$query = mysql_query($query);
+	while($allocation = mysql_fetch_assoc($query)){
+		$allocations[] = $allocation;
+	}
+	return $allocations;
+}

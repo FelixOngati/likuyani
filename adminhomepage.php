@@ -67,8 +67,7 @@ function clearText(field)
         <div id="templatemo_menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="bursary.php">Bursary</a></li>
-                <li><a href="adminhomepage.php" class="current">Administrator</a></li>
+                <li><a href="bursary.php">Bursary</a></li>                
                 <li><a href="blog.html">About Us</a></li>
                 <li class="last"><a href="contact.html">Contact</a></li>
             </ul>
@@ -93,7 +92,7 @@ function clearText(field)
 	<div id="templatemo_middle">
     
     	<p>This is the official admin page. </p>
-        <div class="wwu_btn"><b>You are logged in as <span>+</span></div>
+        <div class="wwu_btn">You are logged in as <span>+</span></div>
     
     </div> <!-- end of templatemo_middle -->
     
@@ -112,7 +111,7 @@ function clearText(field)
                 </a>
                 <p>Go to...</p>
                 <div class="button"><a href="homepagephotos.php">Sliding Photos</a></div>
-				<div class="button"><a href="homepagephotos.php">New Development</a></div>
+				<div class="button"><a href="newdevelopmentupdatesform.php">New Development</a></div>
 				<div class="button"><a href="mpmessage.php">Message from the MP</a></div>
             </li>
             
@@ -120,8 +119,8 @@ function clearText(field)
 				<p>Edit the Bursary Module</p><hr>
                 <a href="images/gallery/image_02.jpg" class="pirobox" title="bursary"><img src="images/gallery/image_02.jpg" alt="" /></a>
                 <p>Go to...</p>
-                <div class="button"><a href="bursary2.php">Bursary Application</a></div>
-				<div class="button"><a href="bursary2.php">Individual Applicant details</a></div>
+                <div class="button"><a href="bursary2.php">New Bursary Application</a></div>
+				<div class="button"><a href="checkdetailsadmin.php">Individual Applicant details</a></div>
 				<div class="button"><a href="bursary2.php">List of successful candidates</a></div>
 				<div class="button"><a href="bursary2.php">List of all applicants</a></div>
             </li>                        
@@ -129,14 +128,14 @@ function clearText(field)
 			<p>Update Projects portal</p><hr>
                 <a href="images/gallery/image_06_b.jpg" class="pirobox" title="Project 1"><img src="images/gallery/image_06.jpg" alt="" /></a>
                  <p>Go to...</p>
-                <div class="button"><a href="#">Classroom</a></div>
+                <div class="button"><a href="#">Matunda Sub-county district</a></div>
             </li>
 			
 			<li class="odd">
 				<p>Fill in the Professional database</p><hr>
                 <a href="images/gallery/image_05_b.jpg" class="pirobox" title="Project 1"><img src="images/gallery/image_05.jpg" alt="" /></a>
                  <p>Go to...</p>
-                <div class="button"><a href="#"></a></div>
+                <div class="button"><a href="#">Database profile</a></div>
             </li>
         </ul>
     

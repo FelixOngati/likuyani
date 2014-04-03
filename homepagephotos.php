@@ -7,14 +7,14 @@ unset($imagename);
 
 if(!isset($_FILES) && isset($HTTP_POST_FILES))
 $_FILES = $HTTP_POST_FILES;
-
+extract($_POST);
 if(!isset($_FILES['image_file']))
 $error["image_file"] = "An image was not found.";
 
 
 $imagename = basename($_FILES['image_file']['name']);
 //echo $imagename;
-//insertSlideImage($imagename);
+insertSlideImage($imagename,$photoDescription);
 
 if(empty($imagename))
 $error["imagename"] = "The name of the image was not found.";
@@ -24,6 +24,7 @@ if(empty($error))
 $newimage = "images/gallery/" . $imagename;
 //echo $newimage;
 $result = @move_uploaded_file($_FILES['image_file']['tmp_name'], $newimage);
+//chmod($newimage, 755);
 if(empty($result))
 $error["result"] = "There was an error moving the uploaded file.";
 }
@@ -114,7 +115,7 @@ $(window).load(function() {
         	<div class="content_box">
 				<form method="POST" enctype="multipart/form-data" name="image_upload_form" action="<?$_SERVER["PHP_SELF"];?>">
 				<p><b style="position:relative;left:2%;display:inline;">Photo Name:</b><input  type="file" name="image_file" size="20" style="position:relative;float:right;right:27%;"/></p>
-				<p><b style="position:relative;left:2%;display:inline;">Description:</b><input type="text" name="photoDescription" style="position:relative;float:right;right:40%;"></p>				
+				<p><b style="position:relative;left:2%;display:inline;">Description:</b><textarea type="text" cols="25" name="photoDescription" style="position:relative;float:right;right:38%;"></textarea></p>				
 				<p><input type="submit" value="Upload Image" name="action" style="position:absolute;float:left;"/></p>
                 </form>				
 			</div>
